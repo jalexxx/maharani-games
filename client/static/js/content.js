@@ -132,9 +132,6 @@ function renderGamePage() {
                 e.preventDefault();
             }
         }, false);
-
-        const canvas = querySelector('canvas')
-        tetrisDiv.append(canvas)
         
 
     }, {once: true})
