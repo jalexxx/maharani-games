@@ -1,5 +1,18 @@
 
-        
+function addHighscore(score) {
+  const addscore = document.createElement('form')
+  const addscoreinput = document.createElement('input')
+  tetrisDiv.appendChild(addscore)
+  addscoreinput.value = score
+  addscoreinput.readOnly = true
+  addscore.append(addscoreinput)
+  addscore.id = "addscore"
+  const addscorebutton = document.createElement('input')
+  addscorebutton.type = 'submit'
+  addscorebutton.value = 'submit score'
+  addscore.append(addscorebutton)
+  console.log('it worked')
+}    
 
 function renderTetris() {
 
@@ -578,12 +591,13 @@ var Page = {
 
 
 
-        console.log(this.ScoreHigh);
+        //console.log(this.ScoreHigh);
       }    
       
       this.IsAlive = false;
     }
   };
+  
   
   
   //--------------------------------------------------//
@@ -967,7 +981,10 @@ var Page = {
     }
     
     // if player not alive, reset the game
+    
     else{
+      addHighscore(GM.ScoreHigh)
+      console.log(GM.ScoreHigh)
       Init();
     }
     
@@ -1035,6 +1052,8 @@ var Page = {
     retColor += ',' + alpha + ')';
     return retColor;
   }
+  
 }
-    
+
+
 
