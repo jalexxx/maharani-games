@@ -1,5 +1,6 @@
 
 
+
 function renderHomepage(){
     const welcome = document.createElement('h1');
     welcome.id = 'welcome';
@@ -123,8 +124,11 @@ function renderGamePage() {
 
     tetrisInput.type = 'button'
     tetrisInput.value = 'Play Tetris'
+
+  
     
     tetrisInput.addEventListener('click', () => {
+        
         renderTetris()
 
         window.addEventListener("keydown", function(e) {
@@ -132,14 +136,15 @@ function renderGamePage() {
                 e.preventDefault();
             }
         }, false);
-        
+
+            
 
     }, {once: true})
     
     
-    main.appendChild(tetrisDiv)
-
     
+    main.appendChild(tetrisDiv)
+        
 
 }
 
@@ -148,3 +153,5 @@ function render404() {
     error.textContent = "Oops, we can't find that page sorry!";
     main.appendChild(error);
 }
+
+

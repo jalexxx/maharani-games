@@ -15,15 +15,25 @@ async function getAllHighscores(){
     }
 }
 
+
+//do appendHighscore next (append to cool leaderboard table)
+/*
+function appendHighScore () {
+    const highScoresList = document.querySelector('table');
+    const newRow = document.createElement('tr');
+    highScoresList.append(newRow);
+}
+*/
+
 // create highscore
 
 function submitHighscore(e){
     e.preventDefault();
 
     const highscoreData = {
-        score: e.target.score.value,
-        game: e.target.game.value,
-        username: e.target.username.value
+        score: 100, //e.target.addscoreinput.value,
+        game: 'Tetris',
+        username: 'test' //localStorage.getItem('username')
 //change these to read where they actually are
     };
 
@@ -35,11 +45,9 @@ function submitHighscore(e){
 
     fetch('http://localhost:3000/highscores', options)
         .then(r => r.json())
-        .then(appendHighscore)
-        .then(() => e.target.reset())
+        //.then(appendHighscore)
+        //.then(() => e.target.reset())
         .catch(console.warn)
 };
-
-//do appendHighscore next (append to cool leaderboard table)
 
 

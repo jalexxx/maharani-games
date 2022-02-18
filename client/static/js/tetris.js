@@ -1,17 +1,20 @@
 
+
 function addHighscore(score) {
   const addscore = document.createElement('form')
   const addscoreinput = document.createElement('input')
+  addscoreinput.id = 'addscoreinput'
   tetrisDiv.appendChild(addscore)
   addscoreinput.value = score
   addscoreinput.readOnly = true
   addscore.append(addscoreinput)
   addscore.id = "addscore"
   const addscorebutton = document.createElement('input')
+  addscorebutton.id = 'submithighscore'
   addscorebutton.type = 'submit'
-  addscorebutton.value = 'submit score'
   addscore.append(addscorebutton)
-  console.log('it worked')
+
+  addscore.addEventListener('submit', submitHighscore )  
 }    
 
 function renderTetris() {
@@ -205,6 +208,8 @@ var Page = {
     if (!GM.IsAlive){
       DrawText("GAME OVER",'rgb(255,255,255)','500',
                'center',uDrawSize,this.W/2,this.H/4);
+      
+      addHighscore(GM.ScoreHigh)
     }
   });
   
@@ -983,7 +988,7 @@ var Page = {
     // if player not alive, reset the game
     
     else{
-      addHighscore(GM.ScoreHigh)
+      //addHighscore(GM.ScoreHigh)
       console.log(GM.ScoreHigh)
       Init();
     }
@@ -1054,6 +1059,7 @@ var Page = {
   }
   
 }
+
 
 
 

@@ -1,3 +1,6 @@
+
+
+
 const nav = document.querySelector('nav');
 const main = document.querySelector('main');
 
@@ -62,3 +65,8 @@ function updateContent(){
 }
 
 updateContent();
+
+
+
+
+
