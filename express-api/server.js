@@ -12,6 +12,6 @@ app.use('/auth', authRoutes);
 app.use('/users', userRoutes);
 app.use('/highscores', highscoreRoutes);
 
-app.get('/', (req, res) => res.json({ message: 'Yesss it works!!' }));
+app.get('/', (req, res) => res.json({ message: 'Noooo it does not work!!' }));
 
 module.exports = app;

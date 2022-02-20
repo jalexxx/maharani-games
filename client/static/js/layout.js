@@ -9,6 +9,10 @@ const privateRoutes = ['#games', '#scores'];
 
 window.addEventListener('hashchange', updateContent);
 
+window.onhashchange = function() {
+    window.location.reload()
+}
+
 function updateNav(){
     nav.innerHTML = '';
     let links;

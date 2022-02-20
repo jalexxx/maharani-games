@@ -17,25 +17,28 @@ async function getAllHighscores(){
 
 
 //do appendHighscore next (append to cool leaderboard table)
-/*
-function appendHighScore () {
+
+function appendHighScore() {
     const highScoresList = document.querySelector('table');
     const newRow = document.createElement('tr');
     highScoresList.append(newRow);
 }
-*/
+
 
 // create highscore
+
+
+
 
 function submitHighscore(e){
     e.preventDefault();
 
     const highscoreData = {
-        score: 100, //e.target.addscoreinput.value,
+        username: localStorage.getItem('username'),
         game: 'Tetris',
-        username: 'test' //localStorage.getItem('username')
-//change these to read where they actually are
+        score: e.target.score.value
     };
+    console.log(highscoreData)
 
     const options = { 
         method: 'POST',
@@ -47,7 +50,5 @@ function submitHighscore(e){
         .then(r => r.json())
         //.then(appendHighscore)
         //.then(() => e.target.reset())
-        .catch(console.warn)
+       // .catch(console.warn)
 };
-
-

@@ -2,20 +2,31 @@
 
 function addHighscore(score) {
   const addscore = document.createElement('form')
-  const addscoreinput = document.createElement('input')
-  addscoreinput.id = 'addscoreinput'
-  tetrisDiv.appendChild(addscore)
-  addscoreinput.value = score
-  addscoreinput.readOnly = true
-  addscore.append(addscoreinput)
-  addscore.id = "addscore"
-  const addscorebutton = document.createElement('input')
-  addscorebutton.id = 'submithighscore'
-  addscorebutton.type = 'submit'
-  addscore.append(addscorebutton)
+  addscore.id = 'addscore'
+  
+  const scorelabel = document.createElement('label')
+  scorelabel.textContent = 'score'
+  addscore.appendChild(scorelabel)
+  const scoreinput = document.createElement('input')
+  scoreinput.type = 'number'
+  scoreinput.id = 'score'
+  scoreinput.value = score
+  scoreinput.readOnly = true
+  addscore.appendChild(scoreinput)
+  
+  const submitscore = document.createElement('input')
+  submitscore.type = 'submit'
+  submitscore.value = "Add highscore"
+  addscore.appendChild(submitscore)
 
-  addscore.addEventListener('submit', submitHighscore )  
-}    
+  tetrisDiv.appendChild(addscore)
+
+  addscore.addEventListener('submit', submitHighscore);
+
+
+}
+
+
 
 function renderTetris() {
 

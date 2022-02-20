@@ -1,6 +1,5 @@
 
 
-
 function renderHomepage(){
     const welcome = document.createElement('h1');
     welcome.id = 'welcome';
@@ -55,8 +54,19 @@ function renderRegisterForm() {
 }
 
 //HighScores
+const hstable = document.createElement('table')
+hstable.className = 'hstable';
+const thUser = document.createElement('th')
+thUser.textContent = 'Username'
+const thGame = document.createElement('th')
+thGame.textContent = 'Game'
+const thScore = document.createElement('th')
+thScore.textContent = 'Score'
+document.querySelectorAll('th').className = 'th';
 
 async function renderHighscoreboard() {
+    
+    
 
     const hsTitle = document.createElement('h2')
     hsTitle.classList = 'hsTitle'
@@ -70,24 +80,16 @@ async function renderHighscoreboard() {
     const highscores = await getAllHighscores();
     
     if(highscores.err){return}
+    
+
 
     const renderHighscore = highscoreData => {
 
-        const hstable = document.createElement('table')
-        hstable.className = 'hstable';
-
+        
         const tr = document.createElement('tr')
         hstable.className = 'tr';
 
         hstable.append(tr)
-
-        const thUser = document.createElement('th')
-        thUser.textContent = 'Username'
-        const thGame = document.createElement('th')
-        thGame.textContent = 'Game'
-        const thScore = document.createElement('th')
-        thScore.textContent = 'Score'
-        document.querySelectorAll('th').className = 'th';
 
         tr.append(thUser)
         tr.append(thGame)
@@ -110,9 +112,13 @@ async function renderHighscoreboard() {
     }
     highscores.forEach(renderHighscore);
     main.appendChild(highscoreboard);
+    
+    
+   
 }
 
 function renderGamePage() {
+
 
     const tetrisDiv = document.createElement('div')
     tetrisDiv.id = 'tetrisDiv'
@@ -121,6 +127,7 @@ function renderGamePage() {
     
      tetrisForm.append(tetrisInput)
      tetrisDiv.append(tetrisForm)
+     main.appendChild(tetrisDiv)
 
     tetrisInput.type = 'button'
     tetrisInput.value = 'Play Tetris'
@@ -143,7 +150,7 @@ function renderGamePage() {
     
     
     
-    main.appendChild(tetrisDiv)
+   
         
 
 }

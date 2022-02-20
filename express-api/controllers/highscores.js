@@ -3,7 +3,7 @@ const router = express.Router();
 
 //const { verifyToken } = require('../middleware/auth');
 
-const Highscore = require('../models/Highscore');
+const Highscore = require('../models/highscore');
 
 router.get('/', async (req, res) => {
     try {
@@ -15,10 +15,20 @@ router.get('/', async (req, res) => {
 })
 
 
+router.get('/:id', async (req, res) => {
+    try {
+        const highscore = await Highscore.findById(req.params.id);
+        res.status(200).json(highscore)
+    } catch (err) {
+        res.status(404).json({err})
+    }
+})
+
+
 // Create highscore route
 router.post('/', async (req, res) => {
     try {
-        const highscore = await Highscore.create(req.body.score, req.body.game, req.body.username)
+        const highscore = await Highscore.create( req.body.game, req.body.score, req.body.username)
         res.json(highscore)
     } catch(err) {
         res.status(404).json({err})
